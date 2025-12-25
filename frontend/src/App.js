@@ -75,10 +75,6 @@ function App() {
           <Rewards refreshTrigger={refreshTrigger} />
         )}
       </main>
-
-      <footer className="app-footer">
-        <p>Built with ❤️ by Anuj Behra | © 2025</p>
-      </footer>
     </div>
   );
 }
