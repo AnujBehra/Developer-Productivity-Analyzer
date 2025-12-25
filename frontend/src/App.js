@@ -4,6 +4,7 @@ import Dashboard from "./dashboard";
 import Rewards from "./rewards";
 import Goals from "./goals";
 import Analytics from "./analytics";
+import Focus from "./focus";
 import "./App.css";
 
 function App() {
@@ -46,6 +47,12 @@ function App() {
           📈 Analytics
         </button>
         <button 
+          className={activeTab === "focus" ? "nav-btn active" : "nav-btn"}
+          onClick={() => setActiveTab("focus")}
+        >
+          🎯 Focus
+        </button>
+        <button 
           className={activeTab === "rewards" ? "nav-btn active" : "nav-btn"}
           onClick={() => setActiveTab("rewards")}
         >
@@ -69,6 +76,10 @@ function App() {
         
         {activeTab === "analytics" && (
           <Analytics refreshTrigger={refreshTrigger} />
+        )}
+        
+        {activeTab === "focus" && (
+          <Focus refreshTrigger={refreshTrigger} />
         )}
         
         {activeTab === "rewards" && (

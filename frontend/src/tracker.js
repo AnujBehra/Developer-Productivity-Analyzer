@@ -14,7 +14,10 @@ export default function Tracker({ onActivitySaved }) {
     browsing: "🌐",
     break: "☕",
     meeting: "👥",
-    learning: "📚"
+    learning: "📚",
+    youtube: "📺",
+    instagram: "📸",
+    reddit: "🔴"
   };
 
   const saveActivity = async () => {

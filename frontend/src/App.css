@@ -1089,3 +1089,302 @@ body {
 .history-list::-webkit-scrollbar-thumb:hover {
   background: #2d2d4a;
 }
+
+/* Focus Component */
+.focus-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.focus-score-card {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+}
+
+.focus-score-card h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0 0 24px 0;
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.score-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.score-inner {
+  width: 140px;
+  height: 140px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.score-emoji {
+  font-size: 1.5rem;
+  margin-top: 4px;
+}
+
+.score-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-label {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.score-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Focus Stats */
+.focus-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.focus-stat {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.focus-stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.focus-stat .stat-icon {
+  font-size: 1.8rem;
+}
+
+.focus-stat .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.focus-stat .stat-label {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Distraction Card */
+.distraction-card {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.distraction-card h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+}
+
+.distraction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.distraction-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #252540;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.distraction-icon {
+  font-size: 1.4rem;
+}
+
+.distraction-name {
+  color: #fff;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.distraction-bar-container {
+  flex: 1;
+  height: 8px;
+  background: #1a1a2e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.distraction-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.distraction-duration {
+  color: #888;
+  font-size: 0.9rem;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Focus Trend Card */
+.focus-trend-card {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.trend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.trend-header h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.trend-chart {
+  height: 250px;
+}
+
+/* Weekly Summary Card */
+.weekly-summary-card {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.weekly-summary-card h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+}
+
+.week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  height: 150px;
+  align-items: end;
+}
+
+.week-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.day-name {
+  color: #888;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.day-score-bar {
+  width: 100%;
+  max-width: 30px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s ease;
+  min-height: 5px;
+}
+
+.day-score {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Focus Loading */
+.focus-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  color: #888;
+}
+
+.focus-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #252540;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+/* Responsive for Focus */
+@media (max-width: 600px) {
+  .focus-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .week-days {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  
+  .day-score-bar {
+    max-width: 20px;
+  }
+  
+  .score-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .score-inner {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .score-value {
+    font-size: 2.5rem;
+  }
+}
