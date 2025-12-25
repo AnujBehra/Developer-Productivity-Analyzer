@@ -3,34 +3,79 @@ import { useState } from "react";
 
 const API_URL = "https://backend-henna-delta-87.vercel.app";
 
-export default function Tracker() {
+export default function Tracker({ onActivitySaved }) {
   const [type, setType] = useState("coding");
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const activityIcons = {
+    coding: "💻",
+    browsing: "🌐",
+    break: "☕",
+    meeting: "👥",
+    learning: "📚"
+  };
 
   const saveActivity = async () => {
-    await axios.post(`${API_URL}/api/activity`, {
-      type,
-      duration
-    });
-    alert("Activity Logged!");
+    if (!duration || duration <= 0) {
+      setMessage("⚠️ Please enter a valid duration");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+    
+    try {
+      await axios.post(`${API_URL}/api/activity`, {
+        type,
+        duration: Number(duration)
+      });
+      setMessage("✅ Activity logged successfully!");
+      setDuration("");
+      if (onActivitySaved) onActivitySaved();
+    } catch (error) {
+      setMessage("❌ Failed to save activity. Try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <h3>Log Activity</h3>
-      <select onChange={e => setType(e.target.value)}>
-        <option value="coding">Coding</option>
-        <option value="browsing">Browsing</option>
-        <option value="break">Break</option>
-      </select>
+    <div className="tracker-card">
+      <h3>📝 Log Activity</h3>
+      
+      <div className="activity-buttons">
+        {Object.keys(activityIcons).map(activity => (
+          <button
+            key={activity}
+            className={`activity-btn ${type === activity ? 'active' : ''}`}
+            onClick={() => setType(activity)}
+          >
+            {activityIcons[activity]} {activity.charAt(0).toUpperCase() + activity.slice(1)}
+          </button>
+        ))}
+      </div>
 
-      <input
-        type="number"
-        placeholder="Minutes"
-        onChange={e => setDuration(e.target.value)}
-      />
+      <div className="input-group">
+        <input
+          type="number"
+          placeholder="Duration in minutes"
+          value={duration}
+          onChange={e => setDuration(e.target.value)}
+          min="1"
+          className="duration-input"
+        />
+        <button 
+          onClick={saveActivity} 
+          disabled={loading}
+          className="save-btn"
+        >
+          {loading ? "Saving..." : "💾 Save Activity"}
+        </button>
+      </div>
 
-      <button onClick={saveActivity}>Save</button>
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }
